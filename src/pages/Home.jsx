@@ -12,11 +12,13 @@ export default function Home() {
       <Sidebar />
 
       <main className="home-main">
-        {/* 1. About Me */}
+        {/* 1. Quote */}
         <section className="section about-section">
-          <div className="glass-orb">
-            <h1>boseolog ✨</h1>
-            <p>기록으로 성장하는 백엔드 개발자</p>
+          <div className="quote-hero">
+            <p className="quote-text">
+              “Make it work, make it right, make it fast.”
+            </p>
+            <span className="quote-sub">— Kent Beck</span>
           </div>
         </section>
 
