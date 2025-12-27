@@ -1,16 +1,10 @@
-import TwinkleBackground from "../components/TwinkleBackground";
-import TrailCursor from "../components/TrailCursor";
-import Sidebar from "../components/Sidebar";
 import "../assets/styles/home.css";
 import BottomNav from "../components/BottomNav";
+import MainLayout from "../layouts/MainLayout";
 
 export default function Home() {
   return (
-    <div className="home-root">
-      <TrailCursor />
-      <TwinkleBackground />
-      <Sidebar />
-
+    <MainLayout>
       <main className="home-main">
         {/* 1. Quote */}
         <section className="section about-section">
@@ -36,16 +30,14 @@ export default function Home() {
                 </div>
 
                 <div className="card-body">
-                  <h3 className="card-title">
-                    Project {i + 1}
-                  </h3>
+                  <h3 className="card-title">Project {i + 1}</h3>
 
                   <div className="card-meta">
-                      <div className="meta-left">
-                        <span>❤️ 42</span>
-                        <span>👀 128</span>
-                      </div>
-                      <span className="card-date">2025.01.12</span>
+                    <div className="meta-left">
+                      <span>❤️ 42</span>
+                      <span>👀 128</span>
+                    </div>
+                    <span className="card-date">2025.01.12</span>
                   </div>
                 </div>
               </div>
@@ -68,20 +60,20 @@ export default function Home() {
 
                 <div className="card-body">
                   <h3 className="card-title">{t}</h3>
-                    <div className="card-meta">
-                      <div className="meta-left">
-                        <span>❤️ 42</span>
-                        <span>👀 128</span>
-                      </div>
-                      <span className="card-date">2025.01.12</span>
+                  <div className="card-meta">
+                    <div className="meta-left">
+                      <span>❤️ 42</span>
+                      <span>👀 128</span>
                     </div>
+                    <span className="card-date">2025.01.12</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 4. 일상 인기글 */}
+        {/* 4. 개발 말고, 이런 하루들 */}
         <section className="section">
           <h2>📓 개발 말고, 이런 하루들…</h2>
           <div className="glass-grid">
@@ -95,16 +87,14 @@ export default function Home() {
                 </div>
 
                 <div className="card-body">
-                  <h3 className="card-title">
-                    Diary #{i + 1}
-                  </h3>
+                  <h3 className="card-title">Diary #{i + 1}</h3>
 
                   <div className="card-meta">
-                      <div className="meta-left">
-                        <span>❤️ 42</span>
-                        <span>👀 128</span>
-                      </div>
-                      <span className="card-date">2025.01.12</span>
+                    <div className="meta-left">
+                      <span>❤️ 42</span>
+                      <span>👀 128</span>
+                    </div>
+                    <span className="card-date">2025.01.12</span>
                   </div>
                 </div>
               </div>
@@ -117,6 +107,6 @@ export default function Home() {
       <div className="mobile-only">
         <BottomNav />
       </div>
-    </div>
+    </MainLayout>
   );
 }
