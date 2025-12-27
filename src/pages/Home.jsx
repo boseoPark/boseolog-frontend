@@ -1,0 +1,120 @@
+import TwinkleBackground from "../components/TwinkleBackground";
+import TrailCursor from "../components/TrailCursor";
+import Sidebar from "../components/Sidebar";
+import "../assets/styles/home.css";
+import BottomNav from "../components/BottomNav";
+
+export default function Home() {
+  return (
+    <div className="home-root">
+      <TrailCursor />
+      <TwinkleBackground />
+      <Sidebar />
+
+      <main className="home-main">
+        {/* 1. About Me */}
+        <section className="section about-section">
+          <div className="glass-orb">
+            <h1>boseolog ✨</h1>
+            <p>기록으로 성장하는 백엔드 개발자</p>
+          </div>
+        </section>
+
+        {/* 2. Portfolio */}
+        <section className="section">
+          <h2>💼 Portfolio</h2>
+          <div className="glass-grid">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="glass-card">
+                <div className="card-thumb">
+                  <img
+                    src={`https://picsum.photos/400/250?random=portfolio${i}`}
+                    alt="thumbnail"
+                  />
+                </div>
+
+                <div className="card-body">
+                  <h3 className="card-title">
+                    Project {i + 1}
+                  </h3>
+
+                  <div className="card-meta">
+                      <div className="meta-left">
+                        <span>❤️ 42</span>
+                        <span>👀 128</span>
+                      </div>
+                      <span className="card-date">2025.01.12</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. 최근 공부하는 건요 */}
+        <section className="section">
+          <h2>📚 최근 공부하는 건요...</h2>
+          <div className="glass-grid">
+            {["WebFlux", "Redis", "Docker", "JPA", "Gateway"].map((t, i) => (
+              <div key={t} className="glass-card">
+                <div className="card-thumb">
+                  <img
+                    src={`https://picsum.photos/400/250?random=study${i}`}
+                    alt="thumbnail"
+                  />
+                </div>
+
+                <div className="card-body">
+                  <h3 className="card-title">{t}</h3>
+                    <div className="card-meta">
+                      <div className="meta-left">
+                        <span>❤️ 42</span>
+                        <span>👀 128</span>
+                      </div>
+                      <span className="card-date">2025.01.12</span>
+                    </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. 일상 인기글 */}
+        <section className="section">
+          <h2>📓 일상 인기글</h2>
+          <div className="glass-grid">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="glass-card">
+                <div className="card-thumb">
+                  <img
+                    src={`https://picsum.photos/400/250?random=diary${i}`}
+                    alt="thumbnail"
+                  />
+                </div>
+
+                <div className="card-body">
+                  <h3 className="card-title">
+                    Diary #{i + 1}
+                  </h3>
+
+                  <div className="card-meta">
+                      <div className="meta-left">
+                        <span>❤️ 42</span>
+                        <span>👀 128</span>
+                      </div>
+                      <span className="card-date">2025.01.12</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      {/* 모바일 하단 네비 */}
+      <div className="mobile-only">
+        <BottomNav />
+      </div>
+    </div>
+  );
+}

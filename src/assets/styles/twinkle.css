@@ -1,0 +1,50 @@
+.twinkle-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at bottom,
+    #1a0b3a 0%,
+    #090016 70%,
+    #05000d 100%
+  );
+}
+
+/* ⭐ 별 */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    0 0 6px rgba(255, 180, 255, 0.9),
+    0 0 12px rgba(200, 120, 255, 0.8);
+  animation: twinkle 2.5s infinite ease-in-out;
+}
+
+/* 💖 하트 */
+.heart {
+  position: absolute;
+  font-size: 16px;
+  color: hotpink;
+  pointer-events: none;
+  text-shadow:
+    0 0 6px rgba(255, 105, 180, 0.8),
+    0 0 12px rgba(255, 105, 180, 0.6);
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%   { opacity: 0.3; transform: scale(1); }
+  50%  { opacity: 1;   transform: scale(1.6); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0);   opacity: 0.4; }
+  50%  { transform: translateY(-20px); opacity: 1; }
+  100% { transform: translateY(0);   opacity: 0.4; }
+}

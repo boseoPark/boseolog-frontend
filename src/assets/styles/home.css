@@ -1,0 +1,236 @@
+/* =====================================================
+   1. Layout (PC 기본)
+===================================================== */
+.home-root {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  z-index: 1;
+}
+
+.home-main {
+  position: relative;
+  z-index: 5;
+  margin-left: 300px; /* PC에서 Sidebar 공간 */
+  padding: 60px;
+}
+
+.section {
+  margin-bottom: 120px;
+}
+
+/* =====================================================
+   2. About Me (Hero Section)
+===================================================== */
+.about-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-orb {
+  width: 70%;
+  height: 60%;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 60px rgba(180, 120, 255, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-orb h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.glass-orb p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* =====================================================
+   3. Section Title
+===================================================== */
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  text-shadow: 0 0 12px rgba(180, 120, 255, 0.35);
+}
+
+/* =====================================================
+   4. Grid (PC 기본)
+===================================================== */
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* =====================================================
+   5. Glass Card
+===================================================== */
+.glass-card {
+  cursor: pointer;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 30px rgba(180, 120, 255, 0.15);
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 45px rgba(180, 120, 255, 0.35);
+}
+
+.glass-card:active {
+  transform: translateY(-2px) scale(0.96);
+}
+
+/* =====================================================
+   6. Card Content
+===================================================== */
+/* Thumbnail */
+.card-thumb {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.glass-card:hover .card-thumb img {
+  transform: scale(1.08);
+}
+
+/* Body */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.glass-card:hover .card-title {
+  color: #e7d7ff;
+}
+
+/* =====================================================
+   7. Meta (Like / View / Date)
+===================================================== */
+.card-meta {
+  font-size: 13px;
+  opacity: 0.75;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+  row-gap: 4px;
+  margin-top: 6px;
+}
+
+.meta-left {
+  display: flex;
+  gap: 8px;
+}
+
+.card-date {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   8. BottomNav 기본 숨김 (PC/태블릿)
+===================================================== */
+.mobile-only {
+  display: none;
+}
+
+/* =====================================================
+   9. Responsive (태블릿)
+===================================================== */
+@media (max-width: 1200px) {
+  .glass-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =====================================================
+   10. Responsive (모바일)
+   - Sidebar 숨김
+   - BottomNav 표시
+   - Grid 1열
+===================================================== */
+@media (max-width: 900px) {
+  /* Sidebar 완전 제거 */
+  .sidebar {
+    display: none !important;
+  }
+
+  /* Bottom Navigation 표시 */
+  .mobile-only {
+    display: block;
+  }
+
+  /* 레이아웃 보정 */
+  .home-main {
+    margin-left: 0;
+    padding: 24px;
+    padding-bottom: 120px; /* 하단 네비 공간 */
+  }
+
+  .section {
+    margin-bottom: 80px;
+  }
+
+  /* 카드 1개씩 */
+  .glass-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 모바일 가독성 */
+  .card-thumb {
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  /* 메타 줄바꿈 안정화 */
+  .card-meta {
+    justify-content: flex-start;
+  }
+
+  .card-date {
+    width: 100%;
+    margin-left: 0;
+    text-align: right;
+    font-size: 12px;
+    opacity: 0.65;
+  }
+}
