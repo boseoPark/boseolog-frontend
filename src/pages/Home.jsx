@@ -83,7 +83,7 @@ export default function Home() {
 
         {/* 4. 일상 인기글 */}
         <section className="section">
-          <h2>📓 일상 인기글</h2>
+          <h2>📓 개발 말고, 이런 하루들…</h2>
           <div className="glass-grid">
             {Array.from({ length: 5 }).map((_, i) => (
               <div key={i} className="glass-card">

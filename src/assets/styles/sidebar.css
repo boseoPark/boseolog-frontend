@@ -1,16 +1,19 @@
+/* =====================================================
+   Sidebar Layout
+===================================================== */
 .sidebar {
   position: fixed;
   top: 100px;
   left: 40px;
 
-  width: 240px;              /* 👈 핵심: 88px → 240px */
+  width: 240px;
   height: calc(100vh - 180px);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 24px 18px;        /* 좌우 여백도 같이 늘림 */
+  padding: 24px 18px;
   border-radius: 28px;
 
   background: linear-gradient(
@@ -28,8 +31,9 @@
   z-index: 20;
 }
 
-
-/* 프로필 */
+/* =====================================================
+   Profile
+===================================================== */
 .sidebar-profile {
   display: flex;
   align-items: center;
@@ -43,27 +47,30 @@
   border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
-.profile-text {
-  display: flex;
-  flex-direction: column;
-}
-
 .profile-name {
   font-size: 14px;
-  color: #fff;
   font-weight: 600;
+  color: #fff;
 }
 
 .profile-desc {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.75);
+  opacity: 0.75;
 }
 
+/* =====================================================
+   Menu
+===================================================== */
 .sidebar-menu {
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 30px;
+}
+
+.menu-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-item {
@@ -75,15 +82,12 @@
   border-radius: 16px;
 
   font-size: 14px;
-  color: white;
+  color: #fff;
 
   background: rgba(255, 255, 255, 0.08);
-  transition: all 0.25s ease;
   cursor: pointer;
-}
 
-.menu-item span.icon {
-  font-size: 18px;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .menu-item:hover {
@@ -96,9 +100,97 @@
   box-shadow: 0 0 14px rgba(255, 180, 255, 0.8);
 }
 
+/* =====================================================
+   Expandable Arrow
+===================================================== */
+.menu-item.expandable::after {
+  content: "▾";
+  margin-left: auto;
+  font-size: 11px;
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+}
 
+.menu-item.expandable.open::after {
+  transform: rotate(180deg);
+}
+
+/* =====================================================
+   Submenu (공간 0 → 생성)
+===================================================== */
+.submenu {
+  margin-top: 8px;
+  margin-left: 22px;
+  padding-left: 14px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  animation: submenuIn 0.55s ease forwards;
+}
+
+@keyframes submenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenu-item {
+  font-size: 13px;
+  padding: 6px 6px;
+
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  position: relative;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.submenu-item::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.submenu-item:hover {
+  color: #fff;
+  transform: translateX(4px);
+  text-shadow: 0 0 6px rgba(200, 160, 255, 0.6);
+}
+
+/* =====================================================
+   Footer
+===================================================== */
+.sidebar-footer {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* =====================================================
+   Mobile
+===================================================== */
 @media (max-width: 900px) {
   .sidebar {
-    display: none; /* ⭐ 완전히 제거 */
+    display: none;
   }
 }
