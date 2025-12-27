@@ -16,9 +16,9 @@ export default function Home() {
         <section className="section about-section">
           <div className="quote-hero">
             <p className="quote-text">
-              “Make it work, make it right, make it fast.”
+              “Progress, quietly — but consistently.”
             </p>
-            <span className="quote-sub">— Kent Beck</span>
+            <span className="quote-sub">— Boseo Park</span>
           </div>
         </section>
 

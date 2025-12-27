@@ -20,7 +20,7 @@
 }
 
 /* =====================================================
-   2. Quote Hero (Performance Safe)
+   2. Quote Hero (TEXT GLOW ONLY)
 ===================================================== */
 .about-section {
   height: 100vh;
@@ -30,7 +30,6 @@
 }
 
 .quote-hero {
-  position: relative;
   width: 100%;
   height: 100%;
 
@@ -40,71 +39,63 @@
   justify-content: center;
 
   text-align: center;
-  overflow: hidden;
 }
 
-/* 💡 고정된 빛 레이어 (blur 제거) */
-.quote-hero::before {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(180, 120, 255, 0.35) 0%,
-    rgba(180, 120, 255, 0.18) 40%,
-    transparent 70%
-  );
-
-  opacity: 0.35;
-  animation: glowPulse 1.6s ease-in-out infinite;
-  z-index: 0;
-}
-
-/* 메인 문구 */
+/* =========================
+   메인 문구 (글자 기반 빛)
+========================= */
 .quote-text {
-  position: relative;
-  z-index: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.005em;
 
   max-width: 860px;
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.4;
+  font-size: 50px;
+  line-height: 1.45;
 
   color: #ffffff;
 
-  /* shadow 단계 축소 */
   text-shadow:
-    0 0 18px rgba(180, 120, 255, 0.6),
-    0 0 36px rgba(180, 120, 255, 0.4);
+    0 0 6px rgba(180, 120, 255, 0.35),
+    0 0 14px rgba(180, 120, 255, 0.45),
+    0 0 28px rgba(140, 90, 255, 0.35);
 
-  animation: textBlink 1.6s ease-in-out infinite;
+  animation: textGlowPulse 2.8s ease-in-out infinite;
 }
 
-/* 서브 */
+/* 서명 */
 .quote-sub {
-  position: relative;
-  z-index: 1;
   margin-top: 24px;
   font-size: 14px;
   opacity: 0.7;
 }
 
 /* =====================================================
-   3. Animations (GPU SAFE)
+   3. Animations (TEXT ONLY / GPU SAFE)
 ===================================================== */
-@keyframes glowPulse {
-  0% { opacity: 0.25; }
-  50% { opacity: 0.7; }
-  100% { opacity: 0.25; }
-}
-
-@keyframes textBlink {
-  0% { opacity: 0.85; }
-  50% { opacity: 1; }
-  100% { opacity: 0.85; }
+@keyframes textGlowPulse {
+  0% {
+    text-shadow:
+      0 0 6px rgba(180, 120, 255, 0.25),
+      0 0 14px rgba(180, 120, 255, 0.35),
+      0 0 28px rgba(140, 90, 255, 0.25);
+    opacity: 0.85;
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(200, 160, 255, 0.55),
+      0 0 26px rgba(200, 160, 255, 0.65),
+      0 0 52px rgba(160, 120, 255, 0.55);
+    opacity: 1;
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(180, 120, 255, 0.25),
+      0 0 14px rgba(180, 120, 255, 0.35),
+      0 0 28px rgba(140, 90, 255, 0.25);
+    opacity: 0.85;
+  }
 }
 
 /* =====================================================
@@ -117,7 +108,7 @@
 }
 
 /* =====================================================
-   5. Grid (PC 기본)
+   5. Grid
 ===================================================== */
 .glass-grid {
   display: grid;
@@ -145,10 +136,6 @@
 .glass-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 0 42px rgba(180, 120, 255, 0.35);
-}
-
-.glass-card:active {
-  transform: translateY(-2px) scale(0.97);
 }
 
 /* =====================================================
@@ -184,42 +171,28 @@
   font-weight: 600;
 }
 
-.glass-card:hover .card-title {
-  color: #e7d7ff;
-}
-
 /* =====================================================
    8. Meta
 ===================================================== */
 .card-meta {
   font-size: 13px;
   opacity: 0.75;
-
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  row-gap: 4px;
 }
 
-.meta-left {
-  display: flex;
-  gap: 8px;
-}
 
-.card-date {
-  white-space: nowrap;
-}
 
 /* =====================================================
-   9. BottomNav 기본 숨김
+   Mobile Only Helper
 ===================================================== */
 .mobile-only {
   display: none;
 }
 
+
 /* =====================================================
-   10. Responsive
+   9. Responsive
 ===================================================== */
 @media (max-width: 1200px) {
   .glass-grid {
@@ -236,41 +209,14 @@
     display: none !important;
   }
 
-  .mobile-only {
-    display: block;
-  }
-
   .home-main {
     margin-left: 0;
     padding: 24px;
     padding-bottom: 120px;
   }
 
-  .section {
-    margin-bottom: 80px;
-  }
-
   .glass-grid {
     grid-template-columns: 1fr;
-  }
-
-  .card-thumb {
-    height: 180px;
-  }
-
-  .card-title {
-    font-size: 17px;
-  }
-
-  .card-meta {
-    justify-content: flex-start;
-  }
-
-  .card-date {
-    width: 100%;
-    text-align: right;
-    font-size: 12px;
-    opacity: 0.65;
   }
 
   .quote-text {
@@ -278,17 +224,15 @@
     padding: 0 16px;
   }
 
-  .quote-hero::before {
-    width: 300px;
-    height: 300px;
+   .mobile-only {
+    display: block;
   }
 }
 
 /* =====================================================
-   11. Accessibility / 저성능 환경
+   10. Accessibility
 ===================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .quote-hero::before,
   .quote-text {
     animation: none !important;
   }
