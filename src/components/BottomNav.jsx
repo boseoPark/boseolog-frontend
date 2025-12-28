@@ -4,13 +4,15 @@ import "../assets/styles/bottom-nav.css";
 export default function BottomNav() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { pathname } = location;
 
-  const isActive = (path) => location.pathname.startsWith(path);
+  const isHome = pathname === "/";
+  const isActive = (path) => pathname.startsWith(path);
 
   return (
     <nav className="bottom-nav">
       <button
-        className={`nav-item ${isActive("/") ? "active" : ""}`}
+        className={`nav-item ${isHome ? "active" : ""}`}
         onClick={() => navigate("/")}
       >
         🏠
