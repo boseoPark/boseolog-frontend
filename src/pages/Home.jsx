@@ -1,5 +1,5 @@
 import "../assets/styles/home.css";
-import BottomNav from "../components/BottomNav";
+
 import MainLayout from "../layouts/MainLayout";
 
 export default function Home() {
@@ -102,11 +102,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {/* 모바일 하단 네비 */}
-      <div className="mobile-only">
-        <BottomNav />
-      </div>
     </MainLayout>
   );
 }
