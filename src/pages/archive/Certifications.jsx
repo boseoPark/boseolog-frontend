@@ -57,7 +57,9 @@ export default function Certifications() {
       <main className="cert-root">
         {/* Header */}
         <header className="cert-header">
-          <h1>Archive · Certifications</h1>
+          <h1>Archive
+            {category && <span> · {category.toUpperCase()}</span>}
+          </h1>
           <p className="cert-desc">
             노력의 결과는 조용히 쌓이고, 결국 형태가 됩니다.
           </p>
