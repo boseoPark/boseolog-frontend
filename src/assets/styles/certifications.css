@@ -1,0 +1,165 @@
+/* =====================================================
+   Certifications Page
+===================================================== */
+.cert-root {
+  margin-left: 300px;
+  padding: 60px;
+  color: white;
+}
+
+/* =====================================================
+   Header
+===================================================== */
+.cert-header {
+  margin-bottom: 48px;
+}
+
+.cert-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cert-header h1 span {
+  opacity: 0.65;
+}
+
+.cert-desc {
+  font-size: 14px;
+  opacity: 0.75;
+  letter-spacing: 0.3px;
+}
+
+/* =====================================================
+   Trophy Grid
+===================================================== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* =====================================================
+   Trophy Card
+===================================================== */
+.cert-card {
+  position: relative;
+
+  padding: 26px 22px;
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 24px rgba(180, 120, 255, 0.15),
+    inset 0 0 1px rgba(255, 255, 255, 0.4);
+
+  text-align: center;
+  cursor: default;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 42px rgba(200, 160, 255, 0.45),
+    inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+/* =====================================================
+   Icon
+===================================================== */
+.cert-icon {
+  font-size: 42px;
+  margin-bottom: 18px;
+
+  filter: drop-shadow(0 0 14px rgba(200, 160, 255, 0.65));
+}
+
+/* =====================================================
+   Body
+===================================================== */
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cert-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.cert-issuer {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* =====================================================
+   Meta
+===================================================== */
+.cert-meta {
+  margin-top: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.cert-level {
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+}
+
+.cert-date {
+  white-space: nowrap;
+}
+
+/* =====================================================
+   Responsive
+===================================================== */
+@media (max-width: 1200px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cert-root {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .cert-root {
+    padding: 24px;
+    padding-bottom: 120px;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-header h1 {
+    font-size: 26px;
+  }
+}
+
+/* =====================================================
+   Reduced Motion
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cert-card {
+    transition: none;
+  }
+}

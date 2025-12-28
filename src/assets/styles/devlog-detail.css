@@ -1,0 +1,205 @@
+/* ===============================
+   Top Bar
+================================ */
+.detail-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 56px;
+  padding: 0 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(10, 10, 20, 0.6);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 50;
+}
+
+.topbar-menu {
+  font-size: 20px;
+  opacity: 0.85;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 18px;
+}
+
+.topbar-actions button {
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+.topbar-actions button:hover {
+  opacity: 1;
+}
+
+/* ===============================
+   Overlay Sidebar
+================================ */
+.detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 260px;
+  height: 100vh;
+
+  background: rgba(30, 30, 50, 0.95);
+  backdrop-filter: blur(18px);
+
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 60;
+}
+
+.detail-overlay.open {
+  transform: translateX(0);
+}
+
+.overlay-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.overlay-menu {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: white;
+}
+
+/* ===============================
+   Content
+================================ */
+.detail-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px 120px;
+  color: white;
+}
+
+.detail-back {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.detail-title {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+/* ===============================
+   Article
+================================ */
+.detail-article {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.detail-article p {
+  margin-bottom: 20px;
+}
+
+.detail-article ul {
+  padding-left: 20px;
+}
+
+/* ===============================
+   Bottom Action
+================================ */
+.detail-bottom-action {
+  margin: 80px 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-btn,
+.comment-btn {
+  padding: 12px 22px;
+  border-radius: 24px;
+  border: none;
+  background: rgba(255,255,255,0.14);
+  color: white;
+  cursor: pointer;
+}
+
+/* ===============================
+   Comments
+================================ */
+.detail-comments textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border-radius: 18px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  margin-bottom: 12px;
+}
+
+.comment-submit {
+  padding: 10px 20px;
+  border-radius: 18px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  color: white;
+  cursor: pointer;
+}
+
+.comment-item {
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+}
+
+.reply {
+  margin-top: 14px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255,255,255,0.2);
+}
+
+/* ===============================
+   Prev / Next
+================================ */
+.detail-prev-next {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.75;
+}
+
+/* ===============================
+   Mobile
+================================ */
+@media (max-width: 900px) {
+  .detail-content {
+    padding: 100px 16px;
+  }
+}

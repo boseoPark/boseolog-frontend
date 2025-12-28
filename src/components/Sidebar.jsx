@@ -1,27 +1,41 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../assets/styles/sidebar.css";
 import profileImg from "../assets/images/profile.jpg";
 
 export default function Sidebar() {
-  const [openDev, setOpenDev] = useState(false);
-  const [openArchive, setOpenArchive] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [openDev, setOpenDev] = useState(
+    location.pathname.startsWith("/dev-log")
+  );
+  const [openArchive, setOpenArchive] = useState(
+    location.pathname.startsWith("/archive")
+  );
+
+  const isActive = (path) => location.pathname === path;
+  const isSubActive = (path) => location.pathname.startsWith(path);
 
   return (
     <aside className="sidebar">
-      {/* 프로필 */}
+      {/* ===== Profile ===== */}
       <div className="sidebar-profile">
         <img src={profileImg} alt="profile" className="profile-img" />
-        <div className="profile-text">
+        <div>
           <div className="profile-name">보서</div>
           <div className="profile-desc">개발자로서의 여정 ☁️</div>
         </div>
       </div>
 
-      {/* 메뉴 */}
+      {/* ===== Menu ===== */}
       <nav className="sidebar-menu">
-        <div className="menu-item active">
+        <div
+          className={`menu-item ${isActive("/") ? "active" : ""}`}
+          onClick={() => navigate("/")}
+        >
           <span className="icon">🏠</span>
-          <span>Home</span>
+          Home
         </div>
 
         {/* Dev Log */}
@@ -31,21 +45,45 @@ export default function Sidebar() {
             onClick={() => setOpenDev((v) => !v)}
           >
             <span className="icon">💻</span>
-            <span>Dev Log</span>
+            Dev Log
           </div>
 
           {openDev && (
             <div className="submenu">
-              <div className="submenu-item">BackEnd</div>
-              <div className="submenu-item">FrontEnd</div>
-              <div className="submenu-item">Infra</div>
+              <div
+                className={`submenu-item ${
+                  isSubActive("/dev-log/backend") ? "active" : ""
+                }`}
+                onClick={() => navigate("/dev-log/backend")}
+              >
+                BackEnd
+              </div>
+              <div
+                className={`submenu-item ${
+                  isSubActive("/dev-log/frontend") ? "active" : ""
+                }`}
+                onClick={() => navigate("/dev-log/frontend")}
+              >
+                FrontEnd
+              </div>
+              <div
+                className={`submenu-item ${
+                  isSubActive("/dev-log/infra") ? "active" : ""
+                }`}
+                onClick={() => navigate("/dev-log/infra")}
+              >
+                Infra
+              </div>
             </div>
           )}
         </div>
 
-        <div className="menu-item">
+        <div
+          className={`menu-item ${isSubActive("/daily") ? "active" : ""}`}
+          onClick={() => navigate("/daily")}
+        >
           <span className="icon">✍️</span>
-          <span>Daily Log</span>
+          Daily Log
         </div>
 
         {/* Archive */}
@@ -55,19 +93,33 @@ export default function Sidebar() {
             onClick={() => setOpenArchive((v) => !v)}
           >
             <span className="icon">🌙</span>
-            <span>Archive</span>
+            Archive
           </div>
 
           {openArchive && (
             <div className="submenu">
-              <div className="submenu-item">Certifications</div>
-              <div className="submenu-item">Projects</div>
+              <div
+                className={`submenu-item ${
+                  isSubActive("/archive/certifications") ? "active" : ""
+                }`}
+                onClick={() => navigate("/archive/certifications")}
+              >
+                Certifications
+              </div>
+              <div
+                className={`submenu-item ${
+                  isSubActive("/archive/projects") ? "active" : ""
+                }`}
+                onClick={() => navigate("/archive/projects")}
+              >
+                Projects
+              </div>
             </div>
           )}
         </div>
       </nav>
 
-      {/* 하단 */}
+      {/* ===== Footer ===== */}
       <div className="sidebar-footer">
         <span className="footer-dot" />
         <span className="footer-dot" />

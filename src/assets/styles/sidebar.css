@@ -83,10 +83,9 @@
 
   font-size: 14px;
   color: #fff;
-
   background: rgba(255, 255, 255, 0.08);
-  cursor: pointer;
 
+  cursor: pointer;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
@@ -116,7 +115,7 @@
 }
 
 /* =====================================================
-   Submenu (공간 0 → 생성)
+   Submenu
 ===================================================== */
 .submenu {
   margin-top: 8px;
@@ -129,7 +128,7 @@
   flex-direction: column;
   gap: 10px;
 
-  animation: submenuIn 0.55s ease forwards;
+  animation: submenuIn 0.45s ease forwards;
 }
 
 @keyframes submenuIn {
@@ -145,13 +144,19 @@
 
 .submenu-item {
   font-size: 13px;
-  padding: 6px 6px;
+  padding: 6px;
 
   color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
   position: relative;
 
   transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.submenu-item.active {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(200, 160, 255, 0.75);
 }
 
 .submenu-item::before {
